@@ -6,7 +6,7 @@ import { searchResult, searchResolved } from "../global/eventEmitter";
 import { formatIpData, formatReverseGeo } from "../utils/utils";
 import { Modal } from "../components/Modal/modal";
 import { eventsIntroSelections } from "../components/Location/location";
-console.log(process.env.KEY_FLICKR, "===================");
+
 const FLICKR_KEY = process.env.KEY_FLICKR;
 const KEY_GMAPS = process.env.KEY_GMAPS;
 
