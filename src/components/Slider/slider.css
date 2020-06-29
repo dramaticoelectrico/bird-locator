@@ -1,0 +1,58 @@
+.lnr-chevron-left,
+.lnr-chevron-right{
+    color:#fff;      
+    pointer-events: none;
+    display: inline-block;
+    fill: currentColor;
+    width: 5em;
+    height: 3.5em;
+    vertical-align: -0.05em;  
+}
+.count {
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 0.5em 1em;
+    font-family: Didot, Georgia, 'Times New Roman', Times, serif;
+}
+button {
+    border: 1px solid transparent;
+    outline: none;
+    cursor: pointer;
+}
+button:focus{
+    background: lightblue;
+}
+.button-style--slider{
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+.previous{left:0;}
+.next{right:0;}
+.image-style--slider {
+    margin:0; 
+    padding: 0;
+    display: flex; 
+    width:100%;
+    background: #000;
+    will-change: transform;
+    transition: .3s ease-in-out;
+}
+
+.image-list-item {margin:0;padding: 0;list-style: none;z-index:0; opacity: 0;transition: .6s ease-in;}
+.image-list-item.active {opacity: 1; z-index:1}
+img{display: block;}
+.gallery{position:relative;margin:0 auto; overflow: hidden;background: rgba(0, 0, 0, 1);}
+
+/* === THEMES ====== */
+.image-style--fade {
+    display: block;
+}
+.image-style--fade li{
+    position: absolute;
+}

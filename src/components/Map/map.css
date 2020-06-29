@@ -1,0 +1,9 @@
+body {
+    background: hsl(180, 1%, 22%);
+}
+
+#map {
+    width: 95vw;
+    height: 90vh;
+    margin: 0 auto;
+}

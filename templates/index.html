@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="Description" content="Geolocation Bird finder">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="lnr-cross" viewBox="0 0 1024 1024">
+                <title>cross</title>
+                <path class="path1" d="M548.203 537.6l289.099-289.098c9.998-9.998 9.998-26.206 0-36.205-9.997-9.997-26.206-9.997-36.203 0l-289.099 289.099-289.098-289.099c-9.998-9.997-26.206-9.997-36.205 0-9.997 9.998-9.997 26.206 0 36.205l289.099 289.098-289.099 289.099c-9.997 9.997-9.997 26.206 0 36.203 5 4.998 11.55 7.498 18.102 7.498s13.102-2.499 18.102-7.499l289.098-289.098 289.099 289.099c4.998 4.998 11.549 7.498 18.101 7.498s13.102-2.499 18.101-7.499c9.998-9.997 9.998-26.206 0-36.203l-289.098-289.098z"></path>
+            </symbol>
+            <symbol id="lnr-pushpin" viewBox="0 0 1024 1024">
+                <title>pushpin</title>
+                <path class="path1" d="M921.6 347.797l-270.997-270.997c-9.65-9.65-22.507-14.965-36.203-14.965s-26.554 5.314-36.203 14.965l-14.997 14.997c-14.834 14.834-25.6 40.826-25.6 61.803v51.2c0 7.288-5.45 20.446-10.603 25.6l-142.997 142.997c-5.152 5.154-18.312 10.603-25.6 10.603h-51.2c-20.978 0-46.97 10.766-61.803 25.6l-14.997 14.997c-19.963 19.963-19.963 52.443 0 72.406l79.534 79.534-253.426 329.453c-7.84 10.192-6.902 24.619 2.189 33.71 4.966 4.966 11.522 7.499 18.109 7.499 5.477 0 10.974-1.75 15.602-5.309l329.453-253.426 79.536 79.534c9.65 9.651 22.507 14.966 36.203 14.966s26.554-5.314 36.203-14.966l14.997-14.997c14.834-14.834 25.6-40.826 25.6-61.803v-51.2c0-7.288 5.45-20.446 10.603-25.6l142.997-142.997c5.154-5.154 18.312-10.603 25.6-10.603h51.2c20.976 0 46.968-10.766 61.803-25.6l14.997-14.997c9.65-9.65 14.966-22.507 14.966-36.203s-5.317-26.554-14.966-36.203zM216.757 781.642l129.688-168.594 38.906 38.906-168.594 129.688zM870.4 398.997c-5.154 5.154-18.312 10.603-25.6 10.603h-51.2c-20.976 0-46.968 10.766-61.803 25.6l-142.997 142.997c-14.834 14.834-25.6 40.826-25.6 61.803v51.2c0 7.288-5.45 20.446-10.603 25.6l-14.93 14.958c-0.006 0.003-0.032 0.008-0.067 0.008v0.032l-270.997-270.998 14.998-14.998c5.152-5.154 18.312-10.603 25.6-10.603h51.2c20.978 0 46.97-10.766 61.803-25.6l142.995-142.995c14.834-14.834 25.6-40.826 25.6-61.803v-51.2c0-7.288 5.45-20.446 10.603-25.6l14.997-14.997 270.997 270.997-14.997 14.997z"></path>
+            </symbol>
+            <symbol id="lnr-magnifier" viewBox="0 0 1024 1024">
+                <title>magnifier</title>
+                <path class="path1" d="M966.070 981.101l-304.302-331.965c68.573-71.754 106.232-165.549 106.232-265.136 0-102.57-39.942-199-112.47-271.53s-168.96-112.47-271.53-112.47-199 39.942-271.53 112.47-112.47 168.96-112.47 271.53 39.942 199.002 112.47 271.53 168.96 112.47 271.53 112.47c88.362 0 172.152-29.667 240.043-84.248l304.285 331.947c5.050 5.507 11.954 8.301 18.878 8.301 6.179 0 12.378-2.226 17.293-6.728 10.421-9.555 11.126-25.749 1.571-36.171zM51.2 384c0-183.506 149.294-332.8 332.8-332.8s332.8 149.294 332.8 332.8-149.294 332.8-332.8 332.8-332.8-149.294-332.8-332.8z"></path>
+            </symbol>
+            <symbol id="lnr-bookmark" viewBox="0 0 1024 1024">
+                <title>bookmark</title>
+                <path class="path1" d="M793.605 1024.002c-7.331 0-14.482-3.155-19.442-8.941l-287.763-335.723-287.763 335.723c-6.971 8.131-18.269 11.067-28.318 7.349-10.048-3.715-16.718-13.298-16.718-24.010v-921.6c0-14.138 11.462-25.6 25.6-25.6h614.4c14.139 0 25.6 11.462 25.6 25.6v921.6c0 10.712-6.67 20.294-16.718 24.010-2.899 1.074-5.904 1.592-8.877 1.592zM486.4 614.4c7.474 0 14.573 3.266 19.437 8.939l262.163 305.858v-826.797h-563.2v826.797l262.163-305.858c4.864-5.674 11.963-8.939 19.437-8.939z"></path>
+            </symbol>
+            <symbol id="lnr-chevron-left" viewBox="0 0 1024 1024">
+                <title>Move left</title>
+                <path class="path1" d="M716.8 1024c6.552 0 13.102-2.499 18.101-7.499 9.998-9.997 9.998-26.206 0-36.203l-442.698-442.698 442.698-442.699c9.998-9.997 9.998-26.206 0-36.203s-26.206-9.998-36.203 0l-460.8 460.8c-9.998 9.997-9.998 26.206 0 36.203l460.8 460.8c5 5 11.55 7.499 18.102 7.499z"></path>
+            </symbol>
+            <symbol id="lnr-chevron-right" viewBox="0 0 1024 1024">
+                <title>Move right</title>
+                <path class="path1" d="M256 1024c-6.552 0-13.102-2.499-18.101-7.499-9.998-9.997-9.998-26.206 0-36.203l442.698-442.698-442.698-442.699c-9.998-9.997-9.998-26.206 0-36.203s26.206-9.998 36.203 0l460.8 460.8c9.998 9.997 9.998 26.206 0 36.203l-460.8 460.8c-5 5-11.55 7.499-18.102 7.499z"></path>
+            </symbol>
+            <symbol id="lnr-map-marker" viewBox="0 0 1024 1024">
+                <title>map-marker</title>
+                <path class="path1" d="M512 1024c-7.856 0-15.277-3.606-20.13-9.784-2.931-3.73-72.587-92.864-143.229-224.51-41.581-77.491-74.742-153.568-98.565-226.118-30.043-91.499-45.277-177.758-45.277-256.387 0-169.39 137.81-307.2 307.2-307.2s307.2 137.81 307.2 307.2c0 78.629-15.234 164.888-45.278 256.386-23.822 72.55-56.984 148.629-98.565 226.118-70.64 131.646-140.298 220.781-143.229 224.51-4.851 6.179-12.272 9.786-20.128 9.786zM512 51.2c-141.158 0-256 114.842-256 256 0 166.597 74.914 341.176 137.758 458.296 46.186 86.074 92.634 154.306 118.237 189.938 25.709-35.789 72.429-104.432 118.688-190.76 62.643-116.902 137.317-291.163 137.317-457.474 0-141.158-114.84-256-256-256z"></path>
+                <path class="path2" d="M512 460.8c-84.696 0-153.6-68.904-153.6-153.6s68.904-153.6 153.6-153.6 153.6 68.904 153.6 153.6-68.904 153.6-153.6 153.6zM512 204.8c-56.464 0-102.4 45.936-102.4 102.4s45.936 102.4 102.4 102.4c56.464 0 102.4-45.936 102.4-102.4s-45.936-102.4-102.4-102.4z"></path>
+            </symbol>
+        </defs>
+    </svg>
+    <main id="app" class="stage">
+        <header id="location" class="location">
+                      
+        </header>
+        <section class="content">
+            <div id="cards" class="cards"></div>
+            <div id="intro" class="intro"></div>
+        </secion>
+    </main>
+    <nav role="menu" id="menu" class="menu">
+        <button role="menuitem" data-menu="search" class="button menu--search" data-instructor="New search">
+            <svg class="lnr lnr-menu lnr-magnifier">
+                <title>Search</title>
+                <use xlink:href="#lnr-magnifier"></use>
+            </svg>
+        </button>
+        <button role="menuitem" data-menu="saved" class="button menu--saved" data-instructor="Saved locations">
+            <svg class="lnr lnr-menu lnr-bookmark">
+                <title>Saved Locations</title>
+                <use xlink:href="#lnr-bookmark"></use>
+            </svg>
+        </button>
+        <button role="menuitem" data-menu="geolocation" class="button menu--geolocate" data-instructor="Current location">
+            <svg class="lnr lnr-menu lnr-pushpin">
+                <title>Geolocation</title>
+                <use xlink:href="#lnr-pushpin"></use>
+            </svg>
+        </button>
+    </nav>
+    <aside aria-hidden="true" id="menu-saved" class="menu-saved">
+        <button id="close-save-menu" class="button button-menu-saved--close">Close Menu</button>       
+        <ul id="menu-list" class="menu-saved__list"></ul>
+    </aside>
+    <div class="search-modal" aria-hidden="true" aria-modal="search" roll="dialog">
+        <button id="search-modal--close" class="btn search-modal--close" id="close" aria-label="close">
+            <svg class="lnr lnr-search-modal lnr-cross">
+                <use xlink:href="#lnr-cross"></use>
+            </svg>
+        </button>
+        <section class="search-content">
+            <form id="search" class="typeahead search" action="search">
+                <input autocomplete="off" class="search__input" value="" aria-label="search city name or zip code" placeholder="enter city or zip code" tabindex="0"
+                    type="text" name="city">
+                <button class="btn search--clear" id="clearInput" aria-label="clear input field">
+                    <svg class="lnr lnr-search--clear lnr-cross">
+                        <use xlink:href="#lnr-cross"></use>
+                    </svg>
+                </button>
+                <input class="search--submit" type="submit" value="search">
+            </form>
+            <div class="search--instruct">
+                <em class="search-note">use arrow keys to move / ESC to close</em>
+            </div>
+        </section>
+    </div>
+    <div id="bird-map" class="map" aria-hidden="true" aria-describedby="map--info">
+        <div class="map-content">
+            <button id="remove__iframe" class="button button-map--close">close map</button>
+            <p id="map--info" class="map--info"></p>
+        </div>           
+    </div>
+<div id="indicator" class="indicator">
+    <div class="loader">Loading...</div>
+</div>
+</body>
+
+</html>

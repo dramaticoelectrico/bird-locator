@@ -1,0 +1,184 @@
+:root {
+    --alert-valid: #6ADD96;
+    --alert-nonvalid: #E34234;
+    --alert-hazard: #FE7B25;
+    --save-button: rgb(26, 182, 83);
+    --focus-button: #499fa4;
+    --prompt-top: #2DC6DB;
+    --font-style-primary: -apple-system, BlinkMacSystemFont, “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, sans-serif;
+    --font-style-secondary: "AmericanTypewriter", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+[class^="list-status"] {
+    list-style: none;
+    position: relative;
+}
+
+[class^="list-status"]::after {
+    content: "";
+    position: absolute;
+    vertical-align: baseline;
+    width: 5px;
+    height: 5px;
+    left: -1em;
+    top: calc(50% - 3px);
+}
+
+.list-status--true::after {
+    background: var(--alert-valid);
+}
+
+.list-status--false::after {
+    background: var(--alert-nonvalid);
+}
+.list-save:before {
+    content: '\2605';
+    list-style: none;
+}
+/* ============ CARD
+-------------------------------------------------- */
+.cards {
+    padding: 0 0 3.5rem 0;
+}
+
+.gallery {
+    min-height: 230px;
+    background: #000;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background: #fafafa;
+    padding: 1.3em 1.3em 0;
+    margin: 1rem auto;
+    border: 1px solid #d2d2d2;
+    width: 100%;
+}
+
+.card-body {
+    position: relative;
+}
+
+.card--display {
+    padding: 1em 0 1em 1em;
+}
+
+.card--hidden {
+    padding: 0 0 1em 1em;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin: 0.2em 0;
+    position: relative;
+}
+
+.card-title::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0.75em;
+    height: 3px;
+    background: #c54920;
+    left: -1em;
+    top: calc(50% - 3px);
+}
+
+.card-secondary {
+    margin: 0 0 0.5rem;
+}
+
+.card__footer {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+    background: #fafafa;
+}
+.card-location--save {
+    list-style: none;
+    margin: 0.35rem 0;
+}
+
+/* ===== JS RELATED
+-----------------------------------------------------*/
+
+.card-drawer {
+    position: absolute;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    transition: .6s ease-in-out;
+    z-index: 2;
+}
+
+/* ==== BUTTONS
+---------------------------------------------------- */
+
+.button-map-marker {
+    font-size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #fff;
+}
+.button--save {
+    font-size: 1rem;
+    background: hsla(194, 97%, 26%, 0.863);
+    color: hsl(0, 0%, 98%);
+    padding: 0.3rem;
+    border-radius: 2px;
+    font-weight: 100;
+}
+.button--save:disabled{
+    background: hsl(0, 0%, 98%);
+    color: hsl(0, 0%, 20%);
+    border: 1px solid hsl(0, 0%, 20%);
+}
+.map__link {
+    display: flex;
+    align-items: center;
+}
+.button--marker{ 
+    background:url('card-geopin.svg') no-repeat center;
+    pointer-events: none;
+    display: block;
+    width: 2.3em;
+    height:2.3em;
+    background-size:contain;   
+}
+.button__anchor {
+    display: block;
+    border-radius: 2px; 
+    background:  hsl(54, 89%, 48%);
+    border: 5px solid hsl(54, 89%, 48%);
+    margin: 0 0.33rem 0 0;
+}
+.open-close-icon--rotate:focus {
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.open-close-icon--rotate {
+    transform: rotate(45deg);
+    transition: .6s ease-in-out;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: none;
+}
+
+.drawer--active {
+    transform: rotate(0deg);
+}
+
+
+/* ===== ICON RELATED
+-----------------------------------------------------*/
+.lnr-card--open-close {
+    display: inline-block;
+    fill: currentColor;
+    width: 4em;
+    height: 4em;
+    vertical-align: -0.25em;
+}
+

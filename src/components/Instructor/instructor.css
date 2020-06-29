@@ -1,0 +1,60 @@
+.instructor {
+    position: absolute;
+    text-align: center;
+    font-size:1.1rem;
+    line-height: 1.5rem;
+    background: hsla(202, 100%, 16%, 0.932);
+    padding: 0.5rem;
+    color: #fafafa;
+    border-radius: 1px;
+    opacity:0;
+    z-index: -1;
+    transition: all 0.6s;
+}
+.instructor--active {
+    animation-name: slideInUp;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+.instructor--exit {
+    animation-name: slideOutDown;
+    animation-duration: .8s;
+    animation-fill-mode: both;
+}
+.instructor:after {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(4, 72, 74, 0);
+	border-top-color:  hsla(202, 100%, 16%, 0.932);
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+
+@keyframes slideInUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+        
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+@keyframes slideOutDown {
+    from {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    
+    to {
+        transform: translate3d(0, 100%, 0);
+    }
+}

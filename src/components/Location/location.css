@@ -1,0 +1,23 @@
+.location-city-locationID {
+    font-weight: 200;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+    margin-top: 0.5rem;
+    padding-top: 0.3rem;
+}
+.intro--active {
+    animation-name: slideInUp;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+@keyframes slideInUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+        
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}

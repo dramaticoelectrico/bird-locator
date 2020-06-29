@@ -1,0 +1,10 @@
+{
+    "name": "Bird  electromagnetico  descubridor",
+    "theme_color": "#285d5b",
+    "short_name": "electromagnetico",
+    "background_color": "#d2d2d2",
+    "display": "browser",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/"
+  }
