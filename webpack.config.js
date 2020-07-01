@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
+const service = require("dotenv").config();
 
 const criticalCSS = new ExtractTextPlugin("stylesheets/global.css");
 
@@ -85,6 +86,7 @@ module.exports = {
       chunks: ["map"],
       inlineSource: ".(css)$",
       filename: "./map.html",
+      map: service.parsed.MAPS_SERVICE,
       minify: { minifyJS: true, collapseWhitespace: true }
     }),
     new HtmlWebpackInlineSourcePlugin(),
